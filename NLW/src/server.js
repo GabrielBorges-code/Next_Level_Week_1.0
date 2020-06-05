@@ -4,20 +4,25 @@ const server = express()
 //setting public page
 server.use(express.static("public"))
 
+//using tamplate engine
+const nunjucks = require("nunjucks")
+nunjucks.configure("src/views",{
+    express: server,
+    noCache: true
+})
+
 //setting my application steps
 //initial page
 //req = request res = answer
 server.get("/", (req, res) =>{
-    res.sendFile(__dirname + "/views/index.html")
+    return res.render("index.html")
 })
 server.get("/create-point", (req, res) =>{
-    res.sendFile(__dirname + "/views/create-point.html")
+    return res.render("create-point.html")
 })
-server.get("/create-point", (req, res) =>{
-    res.sendFile(__dirname + "/views/create-point.html")
+server.get("/search", (req, res) =>{
+    return res.render("search-results.html")
 })
-server.get("/search-results", (req, res) =>{
-    res.sendFile(__dirname + "/views/search-results.html")
-})
+
 //on server
 server.listen(3000)

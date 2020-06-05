@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block title %}
     <title>Criar um ponto de coleta</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-    
+{% endblock title %}
 
-    <link rel="stylesheet" href="Styles/main.css">
+{% block styles %}
     <link rel="stylesheet" href="Styles/create-point.css">
-    <link rel="stylesheet" href="Styles/resposive.css">
+{% endblock styles %}
 
-</head>
-<body>
+{% block content %}
     <div id="page-create-point">
 
-        <header>
-            <img src="icones/logo.svg" alt="Logomarca">
-            <a href="/">
-                <span></span>
-                Voltar para home
-            </a>
-        </header>
+        {% include "partials/page-header.html" %}
 
         <form action="">
             <h1>Cadastro do ponto de coleta</h1>
@@ -34,40 +25,40 @@
 
                 <div class="field">
                     <label for="name">nome da entidade</label>
-                    <input type="text" name="name" required>
+                    <input type="text" name="name" required="required">
                 </div>
 
                 <div class="field-group">
                     <div class="field">
                         <label for="address">Endereço</label>
-                        <input type="text" name="address" required>
+                        <input type="text" name="address" required="required">
                     </div>
 
                     <div class="field">
                         <label for="address2">Número/Complemento</label>
-                        <input type="text" name="address2" required>
+                        <input type="text" name="address2" required="required">
                     </div>
                 </div>
 
                 <div class="field-group">
-                    
+
                     <div class="field">
                         <label for="state">Estado</label>
-                        <select name="uf" required>
+                        <select name="uf" required="required">
                             <option value="">Selecione um Estado</option>
                         </select>
 
                         <input type="hidden" name="state">
 
                     </div>
-                    
+
                     <div class="field">
                         <label for="city">Cidade</label>
-                        <select name="city" disabled required>
+                        <select name="city" disabled="disabled" required="required">
                             <option value="">Selecione uma Cidade</option>
                         </select>
                     </div>
-            
+
                 </div>
 
             </fieldset>
@@ -77,22 +68,28 @@
                     <h1>Itens de Coleta</h1>
                     <div class="items-grid">
                         <li data-id="1">
-                            <img src="/icones/lampadas.svg" alt="Lampadas"><span>Lampada</span>
+                            <img src="/icones/lampadas.svg" alt="Lampadas">
+                            <span>Lampada</span>
                         </li>
                         <li data-id="2">
-                            <img src="/icones/baterias.svg" alt="Pilhas e Baterias"><span>Pilhas e Baterias</span>
+                            <img src="/icones/baterias.svg" alt="Pilhas e Baterias">
+                            <span>Pilhas e Baterias</span>
                         </li>
                         <li data-id="3">
-                            <img src="/icones/papeis-papelao.svg" alt="Papeis e Papelão"><span>Papeis e Papelão</span>
+                            <img src="/icones/papeis-papelao.svg" alt="Papeis e Papelão">
+                            <span>Papeis e Papelão</span>
                         </li>
                         <li data-id="4">
-                            <img src="/icones/eletronicos.svg" alt="Residuos Eletrônicos"><span>Residuos Eletrônicos</span>
+                            <img src="/icones/eletronicos.svg" alt="Residuos Eletrônicos">
+                            <span>Residuos Eletrônicos</span>
                         </li>
                         <li data-id="5">
-                            <img src="/icones/organicos.svg" alt="Resíduos organicos"><span>Resíduos Organicos</span>
+                            <img src="/icones/organicos.svg" alt="Resíduos organicos">
+                            <span>Resíduos Organicos</span>
                         </li>
                         <li data-id="6">
-                            <img src="/icones/oleo.svg" alt="Oleo de cozinha"><span>Oléo de cozinha</span>
+                            <img src="/icones/oleo.svg" alt="Oleo de cozinha">
+                            <span>Oléo de cozinha</span>
                         </li>
                     </div>
 
@@ -106,10 +103,9 @@
             </button>
 
         </form>
-                   
-    </div>
-    
-    <script src="/scripts/create-point.js"></script>
 
-</body>
-</html>
+    {% endblock content %}
+
+    {% block scripts %}
+        <script src="/scripts/create-point.js"></script>
+    {% endblock scripts %}

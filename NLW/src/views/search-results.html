@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado da Pesquisa</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-    
+{% extends "layout.html" %}
 
-    <link rel="stylesheet" href="Styles/main.css">
+{% set pageId = "page-search-results" %}
+
+{% block styles %}
     <link rel="stylesheet" href="Styles/search-results.css">
-    <link rel="stylesheet" href="Styles/resposive.css">
+{% endblock styles %}
 
-</head>
-<body>
+{% block title %}
+    <title>Resultado da Pesquisa</title>
+{% endblock title %}
+
+{% block content %}
     <div id="page-search-results">
 
-        <header>
-            <img src="icones/logo.svg" alt="Logomarca">
-            <a href="/">
-                <span></span>
-                Voltar para home
-            </a>
-        </header>
-          
-        
+        {% include "partials/page-header.html" %}
+
         <main>
             <h4>
-                <strong>2 pontos</strong> encontrados
+                <strong>2 pontos</strong>
+                encontrados
             </h4>
 
             <div class="cards">
@@ -36,8 +27,10 @@
                     <h1>Colectoria</h1>
                     <h3>Residuos Eletrônicos, Lâmpadas</h3>
                     <p>
-                        Rio do Sul, Santa Catarina <br/>
-                        Guilherme Gemballa, Jardim América <br/>
+                        Rio do Sul, Santa Catarina
+                        <br/>
+                        Guilherme Gemballa, Jardim América
+                        <br/>
                         Número 260
                     </p>
                 </div>
@@ -46,8 +39,10 @@
                     <h1>Papersider</h1>
                     <h3>Papeis e Papelão</h3>
                     <p>
-                        Rio do Sul, Santa Catarina <br/>
-                        Guilherme Gemballa, Jardim América <br/>
+                        Rio do Sul, Santa Catarina
+                        <br/>
+                        Guilherme Gemballa, Jardim América
+                        <br/>
                         Número 260
                     </p>
                 </div>
@@ -56,6 +51,4 @@
         </main>
 
     </div>
-
-</body>
-</html>
+{% endblock content %}
