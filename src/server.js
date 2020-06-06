@@ -1,7 +1,7 @@
 const express = require("express")
 const server = express()
 
-/*//setting public page
+//setting public page
 server.use(express.static("public"))
 
 //using tamplate engine
@@ -22,7 +22,7 @@ server.get("/create-point", (req, res) =>{
 })
 server.get("/search", (req, res) =>{
     return res.render("search-results.html")
-})*/
+})
 
 //on server
 server.listen(3000)
