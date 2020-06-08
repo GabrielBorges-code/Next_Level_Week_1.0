@@ -1,6 +1,9 @@
 const express = require("express")
 const server = express()
 
+//take the data base
+const db = require("./database/db.js")
+
 //setting public page
 server.use(express.static("public"))
 
@@ -21,8 +24,18 @@ server.get("/create-point", (req, res) =>{
     return res.render("create-point.html")
 })
 server.get("/search", (req, res) =>{
-    return res.render("search-results.html")
+    //take data in database
+    db.all(`SELECT name FROM places`, function(err, rows){
+        if(err) {
+            return console.log(err)
+        }
+
+        console.log(rows)
+        //show the page html with the data of database
+        return res.render("search-results.html", { places: rows })
+    }) 
+    
 })
 
-//on server
+//on server 
 server.listen(3000)
