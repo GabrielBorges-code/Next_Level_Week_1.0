@@ -1,0 +1,14 @@
+{
+  "name": "Next_Level_Week_1.0",
+  "description": "O NLW é um evento com muito código, desafios, networking e um único objetivo: te levar para o próximo nível.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
