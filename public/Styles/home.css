@@ -6,7 +6,7 @@ fundo, posicionamento, alinhamento maneira que é vista pelo html (display)
 */
 #page-home {
     height: 115vh;
-    background: url('../icones/home-background.svg') no-repeat;
+    background: url('../assets/home-background.svg') no-repeat;
     background-position: 35vw bottom ;
 }
 
@@ -36,7 +36,7 @@ fundo, posicionamento, alinhamento maneira que é vista pelo html (display)
 #page-home header a span {
     margin-right: 16px;
     display: flex ;
-    background-image: url('../icones/log-in.svg');
+    background-image: url('../assets/log-in.svg');
     width: 20px;
     height: 20px;
 }
@@ -84,7 +84,7 @@ fundo, posicionamento, alinhamento maneira que é vista pelo html (display)
 }
 #page-home main a span:after{
     content: "";
-    background-image: url('../icones/search.svg');
+    background-image: url('../assets/search.svg');
     width: 20px;
     height: 20px;
 }

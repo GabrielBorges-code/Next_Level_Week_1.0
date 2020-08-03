@@ -17,8 +17,8 @@
     align-items: center;
  }
 #page-create-point header a span{
-    margin-right: 16px;
-    background-image: url('../icones/arrow-left.svg');
+     margin-right: 16px;
+    background-image: url('../assets/arrow-left.svg');
     display: flex;
     width: 20px;
     height: 24px;

@@ -1,41 +1,19 @@
-const express = require("express")
-const server = express()
+const express = require ("express");
+const server = express ();
 
-//take the data base
-const db = require("./database/db.js")
+//configure public folder
+server.use(express.static("public"));
 
-//setting public page
-server.use(express.static("public"))
+//configure my page paths
 
-//using tamplate engine
-const nunjucks = require("nunjucks")
-nunjucks.configure("src/views",{
-    express: server,
-    noCache: true
-})
+//pages
+server.get("/", (req, res) => {
+    res.sendFile(__dirname + "/views/index.html");
+});
 
-//setting my application steps
-//initial page
-//req = request res = answer
-server.get("/", (req, res) =>{
-    return res.render("index.html")
-})
-server.get("/create-point", (req, res) =>{
-    return res.render("create-point.html")
-})
-server.get("/search", (req, res) =>{
-    //take data in database
-    db.all(`SELECT name FROM places`, function(err, rows){
-        if(err) {
-            return console.log(err)
-        }
+server.get("/create-point", (req, res) => {
+    res.sendFile(__dirname + "/views/create-point.html");
+});
 
-        console.log(rows)
-        //show the page html with the data of database
-        return res.render("search-results.html", { places: rows })
-    }) 
-    
-})
-
-//on server 
-server.listen(3000)
+//on server
+server.listen(3000);
