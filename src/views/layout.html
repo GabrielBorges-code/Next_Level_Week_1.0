@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt_br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {% block title %}
-            <title>Ecoleta</title>
-        {% endblock title %}
+    {% block title %}
+        <title>Ecoleta </title>
+    {% endblock title %}
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
 
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Styles/main.css">
 
-        <link rel="stylesheet" href="Styles/main.css">
+    {% block styles %}
+    {% endblock styles %}
 
-        {% block styles %}{% endblock styles %}
+    <link rel="stylesheet" href="/Styles/resposive.css">
 
-        <link rel="stylesheet" href="Styles/resposive.css">
+</head>
+<body>
+  
+    <div id="{{ pageId }}">
+        {% block content %}
+        {% endblock content %}
+       
+    </div>
 
-    </head>
+    {% block modal %}
+    {% endblock modal %}
 
-    <body>
-        <div id="{{ pageId }}">
+    {% block scripts %}
+    {% endblock scripts %}
 
-            {% block content %}{% endblock content %}
-
-        </div>
-        {% block modal %}{% endblock modal %}
-
-        {% block scripts %}{% endblock scripts %}
-    </body>
+</body>
 </html>

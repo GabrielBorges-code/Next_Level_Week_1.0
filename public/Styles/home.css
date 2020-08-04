@@ -5,7 +5,7 @@ largura, altura, espaçamento, preenchimento, bordas, cor,
 fundo, posicionamento, alinhamento maneira que é vista pelo html (display)
 */
 #page-home {
-    height: 115vh;
+    height: 100vh;
     background: url('../assets/home-background.svg') no-repeat;
     background-position: 35vw bottom ;
 }
