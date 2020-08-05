@@ -7,6 +7,9 @@ const db = require("./database/db");
 //configure public folder
 server.use(express.static("public"));
 
+//enable req.body on aplication
+server.use(express.urlencoded({ extended: true }));
+
 //tamplate engine
 const nunjucks = require("nunjucks");
 nunjucks.configure("src/views", {
@@ -23,6 +26,46 @@ server.get("/", (req, res) => {
 
 server.get("/create-point", (req, res) => {
     return res.render("create-point.html");
+});
+
+server.post("/savepoint", (req, res) =>{
+    
+    //insert data in batabase
+        const query = `
+        INSERT INTO places (
+            image,
+            name,
+            address,
+            address2,
+            state,
+            city,
+            items
+    ) VALUES (?,?,?,?,?,?,?);
+`
+    const values = [
+        req.body.image,
+        req.body.name,
+        req.body.address,
+        req.body.address2,
+        req.body.state,
+        req.body.city,
+        req.body.items
+   ]
+
+    function afterInsertDate(err){
+        if(err){
+            console.log(err);
+            return res.render("Erro no cadastro!")
+        };
+
+        console.log("Informações cadastradas");
+        console.log(this);
+
+        return res.render("create-point.html", { saved: true});    
+    };
+
+    db.run(query, values, afterInsertDate);
+
 });
 
 server.get("/search", (req, res) => {
